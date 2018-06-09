@@ -16,6 +16,7 @@
 
     <script>
     document.getElementById('getPosts').addEventListener('click', getPosts);
+    document.getElementById('addPost').addEventListener('submit', addPost);
 
       function getPosts() {
         fetch('https://jsonplaceholder.typicode.com/posts')
@@ -32,6 +33,26 @@
         })
         document.getElementById('output').innerHTML = output;
         })
+      }
+
+      function addPost(e) {
+        // preventing submiting to a file
+        e.preventDefault();
+
+        // geting the values of the input
+          let title = document.getElementById('title').value;
+            let body = document.getElementById('body').value;
+
+            fetch('https://jsonplaceholder.typicode.com/posts', {
+              method:'POST',
+              headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-type': 'application/json'
+              },
+              body: JSON.stringify({title:title, body:body})
+            })
+            .then((res) => res.json())
+            .then((data) => console.log(data))
       }
     </script>
   </body>
