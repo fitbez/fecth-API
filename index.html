@@ -17,9 +17,14 @@
       </div>
     <hr>
     <form id="addPost">
-       <input class= "form-group" type="text" id="title" class= "form-control" placeholder="title">
-       <textarea  class= "form-group" type="text" id="body" placeholder="body"></textarea>
-       <input type="submit" value="submit">
+      <div class= "form-group">
+       <input  type="text" id="title" class= "form-control" placeholder="title">
+     </div>
+     <div class= "form-group">
+       <textarea type="text" id="body" class= "form-control" placeholder="body" ></textarea>
+     </div>
+       <input type="submit" class="btn btn-primary"
+       value="submit">
     </form>
     <hr>
     <div id="output"></div>
@@ -35,8 +40,8 @@
           let output = '<h2>Posts<h2>';
           data.forEach(function(post){
             output += `
-       <div>
-         <h3>${post.title}</h3>
+       <div class="card card-body mb-3">
+         <h1>${post.title}</h1>
          <p>${post.body}</P>
        </div>
             `;
